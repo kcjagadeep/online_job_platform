@@ -107,7 +107,8 @@ WSGI_APPLICATION = 'job_platform.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
+# using postgresql as database
+# make sure to innstall psycopg2binary package
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
