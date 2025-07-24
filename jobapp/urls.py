@@ -31,4 +31,8 @@ urlpatterns = [
     path('interview/response/', views.ai_chat_response, name='ai_chat_response'),
     
     
+    # contact 
+    path('contact/', views.contact_view, name='contact'),
+    # debugging
+    path('debug/', views.debug_db, name='debug'),
 ]

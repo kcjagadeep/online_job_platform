@@ -386,13 +386,31 @@ def ai_chat_response(request):
     
 
 
+# contact view
+
+def contact_view(request):
+    return render(request, 'jobapp/contact.html')
+
         
             
-            
+def debug_db(request):
+    try:
+        db_url = os.environ.get('DATABASE_URL', 'Not found')
+        
+        # Test database connection
+        from django.db import connection
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT 1")
+            db_status = "Database connection: OK"
+        
+        return HttpResponse(f'''
+        DATABASE_URL: {db_url[:50]}...<br>
+        {db_status}<br>
+        Environment: {os.environ.get('RENDER', 'Local')}
+        ''')
+    except Exception as e:
+        return HttpResponse(f'Error: {str(e)}')           
            
         
         
     
- # Ask the first interview question
-#  Please start the interview with a greeting and ask the first interview question.
-#     """
